@@ -149,6 +149,75 @@ public final class Preconditions {
     }
 
     /**
+     * Ensures that the argument int value is within the inclusive range.
+     *
+     * @param value a int value
+     * @param lower the lower endpoint of the inclusive range
+     * @param upper the upper endpoint of the inclusive range
+     * @param valueName the name of the argument to use if the check fails
+     *
+     * @throws IllegalArgumentException if {@code value} was not within the range
+     */
+    public static void checkArgumentInRange(int value, int lower, int upper,
+                                            @NonNull String valueName) {
+        if (value < lower) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%d, %d] (too low)", valueName, lower, upper));
+        } else if (value > upper) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%d, %d] (too high)", valueName, lower, upper));
+        }
+    }
+
+    /**
+     * Ensures that the argument int value is within the inclusive range.
+     *
+     * @param value a long value
+     * @param lower the lower endpoint of the inclusive range
+     * @param upper the upper endpoint of the inclusive range
+     * @param valueName the name of the argument to use if the check fails
+     *
+     * @throws IllegalArgumentException if {@code value} was not within the range
+     */
+    public static void checkArgumentInRange(long value, long lower, long upper,
+                                            @NonNull String valueName) {
+        if (value < lower) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%d, %d] (too low)", valueName, lower, upper));
+        } else if (value > upper) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%d, %d] (too high)", valueName, lower, upper));
+        }
+    }
+
+    /**
+     * Ensures that the argument int value is within the inclusive range.
+     *
+     * @param value a double value
+     * @param lower the lower endpoint of the inclusive range
+     * @param upper the upper endpoint of the inclusive range
+     * @param valueName the name of the argument to use if the check fails
+     *
+     * @throws IllegalArgumentException if {@code value} was not within the range
+     */
+    public static void checkArgumentInRange(double value, double lower, double upper,
+                                            @NonNull String valueName) {
+        if (value < lower) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%s, %s] (too low)", valueName, lower, upper));
+        } else if (value > upper) {
+            throw new IllegalArgumentException(
+                    String.format(Locale.US,
+                            "%s is out of range of [%s, %s] (too high)", valueName, lower, upper));
+        }
+    }
+
+    /**
      * Ensures that an string reference passed as a parameter to the calling
      * method is not empty.
      *
